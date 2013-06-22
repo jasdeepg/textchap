@@ -1,6 +1,8 @@
 /*
  * Copyright 2013 TextChap. 
  * 
+ * Author: ccstevens.
+ * 
  */
 
 package com.example.textchap;
