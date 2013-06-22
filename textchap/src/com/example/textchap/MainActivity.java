@@ -1,3 +1,8 @@
+/*
+ * Copyright 2013 TextChap. 
+ * 
+ */
+
 package com.example.textchap;
 
 import android.os.Bundle;
