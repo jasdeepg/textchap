@@ -32,8 +32,45 @@ public class ThreadActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
+	    
+	    //String WHERE_CONDITION = "thread_id = 7";
+	    
+	    // grab the SMS inbox handle
+	    Cursor cursor = getContentResolver().query(SMS_INBOX, 
+	    		new String[] { "_id", "thread_id", "address", "person", "date", "body" }, 
+	    		null, 	
+	    		null, 
+	    		"date DESC");
+	    // move to the front of it
+	    cursor.moveToFirst();
+	    
+	    List<Long> threadId_check = new ArrayList<Long>();
+	    List<String> listThreads = new ArrayList<String>();
+	    
+	    // iterate through the inbox and grab the message components
+	    // create listeners associated with each unique threadId
+	    do{
+	    	  String msgData = "";
+	    	  
+	          long messageId = cursor.getLong(0);
+	          long threadId = cursor.getLong(1);
+	          String address = cursor.getString(2)	;
+	          long contactId = cursor.getLong(3);
+	          String contactId_string = String.valueOf(contactId);
+	          long timestamp = cursor.getLong(4);
+	
+	          String body = cursor.getString(5);
+	          
+	          //if (!threadId_check.contains(threadId)){
+	        	  threadId_check.add(threadId);
+		   	      //TextView msg_text = new TextView(this);
+		          listThreads.add(messageId + " " + threadId + " " + address + " " + contactId_string + " " + timestamp + " " + body + "\n");
+		          //msg_text.setText(msgData);
+		          //ll.addView(msg_text);
+	          //}
+	    }while(cursor.moveToNext());
 	    	    
-	    setListAdapter(new ArrayAdapter<String>(this, R.layout.list_fruit,FRUITS));
+	    setListAdapter(new ArrayAdapter<String>(this, R.layout.list_thread,listThreads));
 	    ListView ll = getListView();
 
 		ll.setOnItemClickListener(new OnItemClickListener() {
@@ -42,6 +79,12 @@ public class ThreadActivity extends ListActivity {
 			    // When clicked, show a toast with the TextView text
 			    Toast.makeText(getApplicationContext(),
 				((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+			    // When clicked go to next activity and pass threadId
+			    /*
+			     * Intent intent = new Intent(this, ChatActivity);
+			     * intent.putExtra("thread_id", threadId_check[position]);
+			     * startActivity(intent);
+			     */
 			}
 		});
 
@@ -68,41 +111,7 @@ public class ThreadActivity extends ListActivity {
 	    //ll.addView(t);
 	    //ll.addView(t2);
 	    	  
-	    String WHERE_CONDITION = "thread_id = 7";
 	    
-	    // grab the SMS inbox handle
-	    Cursor cursor = getContentResolver().query(SMS_INBOX, 
-	    		new String[] { "_id", "thread_id", "address", "person", "date", "body" }, 
-	    		WHERE_CONDITION, 	
-	    		null, 
-	    		"date DESC");
-	    // move to the front of it
-	    cursor.moveToFirst();
-	    
-	    List<Long> threadId_check = new ArrayList<Long>();
-	    
-	    // iterate through the inbox and grab the message components
-	    // create listeners associated with each unique threadId
-	    do{
-	    	  String msgData = "";
-	    	  
-	          long messageId = cursor.getLong(0);
-	          long threadId = cursor.getLong(1);
-	          String address = cursor.getString(2)	;
-	          long contactId = cursor.getLong(3);
-	          String contactId_string = String.valueOf(contactId);
-	          long timestamp = cursor.getLong(4);
-	
-	          String body = cursor.getString(5);
-	          
-	          if (!threadId_check.contains(threadId)){
-	        	  threadId_check.add(threadId);
-		   	      TextView msg_text = new TextView(this);
-		          msgData = threadId + " " + timestamp + " " + body + "\n";
-		          msg_text.setText(msgData);
-		          //ll.addView(msg_text);
-	          }
-	    }while(cursor.moveToNext());
 
 	    //this.setContentView(ll);
 	}
