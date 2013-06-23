@@ -50,5 +50,6 @@
 	        </intent-filter> 
 	    </receiver>
 	    <activity android:name="DemoActivity"></activity>    
+	    <activity android:name="ChaperonConversationActivity"></activity>    
     </application>    
 </manifest>

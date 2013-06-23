@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/chaperonView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/gradient_chaperon"
     android:orientation="horizontal"
     android:padding="5dip" >
-  
-    <!-- Title Of Song-->
-    <TextView
-        android:id="@+id/txtMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Chaperon Message"
-        android:textColor="#040404"
-        android:typeface="sans"
-        android:textSize="15dip"
-        android:textStyle="bold"/>
+
+    <!-- Friend message -->
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+    </RelativeLayout>
+
+    <!-- Chaperon message -->
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="4">
+
+        <TextView
+	        android:id="@+id/txtMessage"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/gradient_chaperon"
+			android:gravity="left"
+	        android:text="Chaperon Message"
+	        android:textColor="#040404"
+	        android:typeface="sans"
+	        android:textSize="15dip"
+	        android:textStyle="bold"/>        
+        
+    </RelativeLayout>
+
+    <!-- User message -->
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+    </RelativeLayout>
  
-</RelativeLayout>
+</LinearLayout>

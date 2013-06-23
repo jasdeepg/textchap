@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 	    Intent intent;
 		
 		//
-		// Launch the chaperon activity.
+		// Launch the user conversation activity.
 		//
 	    
 	    intent = new Intent(this, UserConversationActivity.class);
@@ -68,5 +68,17 @@ public class MainActivity extends Activity {
 	public void launchCCSTest(View view){
 		Intent intent = new Intent(this, DemoActivity.class);
 		startActivity(intent);
+	}
+	/** Called when the user clicks the launch conversation button. */
+	public void launchChaperonConversationActivity(View view) {
+	    Intent intent;
+		
+		//
+		// Launch the chaperon conversation activity.
+		//
+	    
+	    intent = new Intent(this, ChaperonConversationActivity.class);
+		startActivity(intent);
+		return;
 	}
 }

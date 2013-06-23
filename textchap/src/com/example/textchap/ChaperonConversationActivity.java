@@ -3,8 +3,8 @@
  * 
  * Abstract: 
  * 
- *     This module implements the main conversation view for a user receiving
- *     advice from a chaperon.
+ *     This module implements the main conversation view for a chaperon monitoring
+ *     a friend's conversation.
  *           
  * Author: 
  * 
@@ -32,23 +32,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UserConversationActivity extends Activity {
+public class ChaperonConversationActivity extends Activity {
 	
 	Button helpButton;
 	Button sendSmsButton;
+	EditText phoneNumberText;
 	EditText messageText;
 	IntentFilter receiveFilter;
 	ListView messageListView;
 	ConversationAdapter conversationAdapter;
 	ArrayList<HashMap<String,String>> messageList;
 	String friendNumber = "15555215556";
-	String chaperonNumber = "15555215558";
+	String userNumber = "15555215554";
 	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_user_conversation);
+		setContentView(R.layout.activity_chaperon_conversation);
 				
 		/*
 		 * Initialize the message list.
@@ -93,24 +94,10 @@ public class UserConversationActivity extends Activity {
 			public void onClick(View v) {
 				
 				String message;
-				HashMap<String,String> messageMap;
 				
 				message = messageText.getText().toString();
 				if (message.length() > 0) {
-					sendSms(friendNumber, message);
-					sendSms(chaperonNumber, message);
-					
-					/*
-					 * Display the sent message in the conversation view.
-					 * 
-					 * TODO: Verify that the message was successfully sent (add "try again" feature).
-					 */
-					
-					messageMap = new HashMap<String,String>();
-					messageMap.put("type", "user");
-					messageMap.put("body", message);
-					messageList.add(messageMap);
-					conversationAdapter.notifyDataSetChanged();
+					sendSms(userNumber, message);
 					
 					/*
 					 * Clear the message text.
@@ -120,7 +107,7 @@ public class UserConversationActivity extends Activity {
 
 				} else {
 					Toast.makeText(getBaseContext(), 
-							       "Please enter a message.", 
+							       "Please enter both a phone number and a message.", 
 							       Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -167,14 +154,9 @@ public class UserConversationActivity extends Activity {
 			 */
 
 			messageMap = new HashMap<String,String>();
-			messageMap.put("body", bundle.getString("body"));
-			if (bundle.getString("from").equals(friendNumber)) {
-				messageMap.put("type", "friend");
-				messageList.add(messageMap);
-				conversationAdapter.notifyDataSetChanged();
-			
-			} else if (bundle.getString("from").equals(chaperonNumber)) {
-				messageMap.put("type", "chaperon");
+			messageMap.put("body", bundle.getString("body"));			
+			if (bundle.getString("from").equals(userNumber)) {
+				messageMap.put("type", "user");
 				messageList.add(messageMap);
 				conversationAdapter.notifyDataSetChanged();
 			}
@@ -209,11 +191,24 @@ public class UserConversationActivity extends Activity {
 		//Intent intent;
 		//PendingIntent pendingIntent;
 		SmsManager sms;
+		HashMap<String,String> messageMap;
 		
 		//intent = new Intent(this, UserConversationActivity.class);
 		//pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 		sms = SmsManager.getDefault();
 		sms.sendTextMessage(phoneNumber, null, message, null, null);
+		
+		/*
+		 * Display the send message in the conversation view.
+		 * 
+		 * TODO: Verify that the message was successfully sent (add "try again" feature).
+		 */
+		
+		messageMap = new HashMap<String,String>();
+		messageMap.put("type", "chaperon");
+		messageMap.put("body", message);
+		messageList.add(messageMap);
+		conversationAdapter.notifyDataSetChanged();
 		return;
 	}	
 }
