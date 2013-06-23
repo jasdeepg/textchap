@@ -21,7 +21,7 @@
         
     </RelativeLayout>
     
-    <!-- User message small change-->
+    <!-- User message -->
     <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"

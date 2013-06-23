@@ -15,36 +15,6 @@
         android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/log_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="44dp"
-        android:text="Go to threads"
-        android:onClick="user_logged_in" />
-
-    <Button	android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="46dp"
-        android:onClick="launchChaperonActivity"
-        android:text="@string/launch_chaperon" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_below="@+id/button2"
-        android:layout_marginTop="31dp"
-        android:onClick="launchUserConversationActivity"
-        android:text="Temporary convo button" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,5 +23,35 @@
         android:layout_marginTop="47dp"
         android:onClick="launchChaperonConversationActivity"
         android:text="Chap convo button" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/log_in"
+        android:layout_marginTop="27dp"
+        android:onClick="launchUserConversationActivity"
+        android:text="Temporary convo button" />
+
+    <Button
+        android:id="@+id/log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="26dp"
+        android:onClick="user_logged_in"
+        android:text="Go to threads" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:onClick="launchChaperonActivity"
+        android:text="@string/launch_chaperon" />
 
 </RelativeLayout>
