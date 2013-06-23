@@ -82,6 +82,7 @@ public class ContactActivity extends ListActivity {
 			     */
 			}
 		});
+
 	    // TODO Auto-generated method stub
 	}
 	

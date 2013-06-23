@@ -64,4 +64,9 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 		return;
 	}
+	
+	public void launchCCSTest(View view){
+		Intent intent = new Intent(this, DemoActivity.class);
+		startActivity(intent);
+	}
 }
