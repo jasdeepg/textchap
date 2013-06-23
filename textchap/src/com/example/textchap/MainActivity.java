@@ -7,9 +7,9 @@
 
 package com.example.textchap;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
@@ -39,4 +39,29 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
+	/** Called when the user clicks the launch chaperon button. */
+	public void launchChaperonActivity(View view) {
+	    Intent intent;
+		
+		//
+		// Launch the chaperon activity.
+		//
+	    
+	    intent = new Intent(this, ChaperonActivity.class);
+		startActivity(intent);
+		return;
+	}
+	
+	/** Called when the user clicks the launch conversation button. */
+	public void launchUserConversationActivity(View view) {
+	    Intent intent;
+		
+		//
+		// Launch the chaperon activity.
+		//
+	    
+	    intent = new Intent(this, UserConversationActivity.class);
+		startActivity(intent);
+		return;
+	}
 }
