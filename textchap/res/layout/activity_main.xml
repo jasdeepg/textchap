@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +15,46 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+    <Button	android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="46dp"
+        android:onClick="launchChaperonActivity"
+        android:text="@string/launch_chaperon" />
+
     <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="31dp"
+        android:onClick="launchUserConversationActivity"
+        android:text="Temporary convo button" />
+
+    <Button
+        android:id="@+id/log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="29dp"
+        android:onClick="user_logged_in"
+        android:text="Go to threads" />
+
+    <Button
+        android:id="@+id/test_ccs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/log_in"
+        android:layout_below="@+id/log_in"
+        android:layout_marginTop="27dp"
+        android:onClick="launchCCSTest"
+        android:text="Test CCS" />
+
+	<button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,14 +84,5 @@
         android:onClick="user_logged_in"
         android:text="Go to threads" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="20dp"
-        android:onClick="launchChaperonActivity"
-        android:text="@string/launch_chaperon" />
 
 </RelativeLayout>

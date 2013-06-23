@@ -65,6 +65,10 @@ public class MainActivity extends Activity {
 		return;
 	}
 	
+	public void launchCCSTest(View view){
+		Intent intent = new Intent(this, DemoActivity.class);
+		startActivity(intent);
+	}
 	/** Called when the user clicks the launch conversation button. */
 	public void launchChaperonConversationActivity(View view) {
 	    Intent intent;
