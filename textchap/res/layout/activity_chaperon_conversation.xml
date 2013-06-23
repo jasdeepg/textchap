@@ -9,8 +9,8 @@
 	    android:layout_width="fill_parent"
       	android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
-		android:background="@drawable/gradient_help_button"
-       	android:text="HELP" />      
+		android:background="@drawable/gradient_suggest_button"
+       	android:text="SUGGEST" />      
     
    <Button
         android:id="@+id/btnSendSMS"
