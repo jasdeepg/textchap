@@ -24,9 +24,6 @@ import android.widget.Toast;
 public class ThreadActivity extends ListActivity {
 	public static final Uri SMS_INBOX = Uri.parse("content://sms/inbox");
 	String new_var = "";
-	static final String[] FRUITS = new String[] { "Apple", "Avocado", "Banana",
-		"Blueberry", "Coconut", "Durian", "Guava", "Kiwifruit",
-		"Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
 
 	/** Called when the activity is first created. */
 	@Override
@@ -77,14 +74,15 @@ public class ThreadActivity extends ListActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 			    // When clicked, show a toast with the TextView text
-			    Toast.makeText(getApplicationContext(),
-				((TextView) view).getText(), Toast.LENGTH_SHORT).show();
-			    // When clicked go to next activity and pass threadId
-			    /*
-			     * Intent intent = new Intent(this, ChatActivity);
-			     * intent.putExtra("thread_id", threadId_check[position]);
-			     * startActivity(intent);
+			    /*Toast.makeText(getApplicationContext(),
+				 * ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 			     */
+				// When clicked go to next activity and pass threadId
+			     Intent intent = new Intent(getBaseContext(), ContactActivity.class);
+			     //long thread_id_pull = threadId_check.get(position);
+			     intent.putExtra("thread_id", 1);
+			     startActivity(intent);
+			     
 			}
 		});
 
