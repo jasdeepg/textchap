@@ -15,6 +15,7 @@
         android:text="@string/hello_world" />
 
     <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
@@ -22,5 +23,15 @@
         android:layout_marginTop="46dp"
         android:onClick="launchChaperonActivity"
         android:text="@string/launch_chaperon" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="31dp"
+        android:onClick="launchUserConversationActivity"
+        android:text="Temporary convo button" />
 
 </RelativeLayout>

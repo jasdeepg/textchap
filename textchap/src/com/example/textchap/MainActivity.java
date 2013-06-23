@@ -40,5 +40,17 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 		return;
 	}
-
+	
+	/** Called when the user clicks the launch conversation button. */
+	public void launchUserConversationActivity(View view) {
+	    Intent intent;
+		
+		//
+		// Launch the chaperon activity.
+		//
+	    
+	    intent = new Intent(this, UserConversationActivity.class);
+		startActivity(intent);
+		return;
+	}
 }
