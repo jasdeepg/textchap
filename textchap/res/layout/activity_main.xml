@@ -15,7 +15,17 @@
         android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="44dp"
+        android:text="Go to threads"
+        android:onClick="user_logged_in" />
+
+    <Button	android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"

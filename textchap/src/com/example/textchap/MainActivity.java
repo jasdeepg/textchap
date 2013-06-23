@@ -28,6 +28,17 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	public void user_logged_in(View view){
+		Bundle b = new Bundle();
+		
+		b.putString("new_var", "test1");
+		b.putString("new_var2", "test2");
+		
+		Intent intent = new Intent(this, ThreadActivity.class);
+		intent.putExtra("vars", b);
+		startActivity(intent);
+	}
+
 	/** Called when the user clicks the launch chaperon button. */
 	public void launchChaperonActivity(View view) {
 	    Intent intent;
